@@ -1,0 +1,27 @@
+# Binaries
+*.exe
+*.app
+
+# Object files
+*.o
+*.a
+
+# Temporary files
+*.tmp
+*.swp
+
+# Editor files
+.idea/
+.vscode/
+
+# Test cache
+testdata/
+
+# Vendor directory
+vendor/
+
+# Configuration files
+.env
+
+# Database files
+*.db
