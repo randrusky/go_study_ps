@@ -1,27 +1,23 @@
-# Binaries
-*.exe
-*.app
+# Allowlisting gitignore template for GO projects prevents us
+# from adding various unwanted local files, such as generated
+# files, developer configurations or IDE-specific files etc.
+#
+# Recommended: Go.AllowList.gitignore
 
-# Object files
-*.o
-*.a
+# Ignore everything
+*
 
-# Temporary files
-*.tmp
-*.swp
+# But not these files...
+!/.gitignore
 
-# Editor files
-.idea/
-.vscode/
+!*.go
+!go.sum
+!go.mod
 
-# Test cache
-testdata/
+!README.md
+!LICENSE
 
-# Vendor directory
-vendor/
+# !Makefile
 
-# Configuration files
-.env
-
-# Database files
-*.db
+# ...even if they are in subdirectories
+!*/
