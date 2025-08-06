@@ -1,19 +1,22 @@
 package main
 
 import (
-	"log"
 	"study/go-fiber/config"
 	"study/go-fiber/internal/home"
 
+	"github.com/gofiber/contrib/fiberzerolog"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/recover"
+	"github.com/rs/zerolog"
 )
 
 func main() {
 	config.Init()	
-	dbConf := config.NewDatabaseConfig()
-    log.Println((dbConf)) 
+	config.NewDatabaseConfig()
+	logConfig := config.NewLogConfig() 
 	app := fiber.New()
+	zerolog.SetGlobalLevel(zerolog.Level(logConfig.Level))
+	app.Use(fiberzerolog.New())
 	app.Use(recover.New())
 	home.NewHandler(app)
 	app.Listen(":3000")
