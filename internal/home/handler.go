@@ -15,12 +15,12 @@ func NewHandler(router fiber.Router)  {
 	}
 
 	api := router.Group("/api")
-	api.Get("/home", h.home)
+	api.Get("/", h.home)
 	api.Get("/error", h.error)
 }
 
 func (h *HomeHandler) home(c *fiber.Ctx) error {
-	return fiber.NewError(fiber.StatusOK, "Welcome to the Home Page")
+	return fiber.NewError(fiber.StatusBadRequest, "Limit params is undefined")
 }
 
 func (h *HomeHandler) error(c *fiber.Ctx) error {
