@@ -22,7 +22,8 @@ func NewHandler(router fiber.Router, customLogger *zerolog.Logger) {
 }
 
 func (h *HomeHandler) home(c *fiber.Ctx) error {
-	return fiber.NewError(fiber.StatusBadRequest, "Limit params is undefined")
+	data := struct{ Count int }{Count: 5}
+	return c.Render("page", data)
 }
 
 func (h *HomeHandler) error(c *fiber.Ctx) error {
